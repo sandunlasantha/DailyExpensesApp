@@ -8,12 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("DailyExpensesApp.Views.DailyExpenses.xaml", "Views/DailyExpenses.xaml", typeof(global::DailyExpensesApp.Views.DailyExpenses))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("DailyExpensesApp.Views.DailyExpensesHome.xaml", "Views/DailyExpensesHome.xaml", typeof(global::DailyExpensesApp.Views.DailyExpenses))]
 
 namespace DailyExpensesApp.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\DailyExpenses.xaml")]
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\DailyExpensesHome.xaml")]
     public partial class DailyExpenses : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]

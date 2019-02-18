@@ -6,7 +6,10 @@
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False"
              Opacity="50"
-             >
+             xmlns:vm1="clr-namespace:DailyExpensesApp.Models">
+    <ContentPage.BindingContext>
+        <vm1:LoginViewModel/>
+    </ContentPage.BindingContext>
     <Grid Padding="20,20,20,0" HorizontalOptions="Center">
         <Grid.RowDefinitions >
             <RowDefinition Height="2*"/>
@@ -32,23 +35,24 @@
 
         <Image Grid.Row="1"  x:Name="ImageLogo" WidthRequest="150" HeightRequest="150"  HorizontalOptions="Center" VerticalOptions="StartAndExpand"/>
         <BoxView  BackgroundColor="#373750" Grid.Row="3" HorizontalOptions="Center" WidthRequest="380" CornerRadius="15"/>
-        <Entry Grid.Row="3" Placeholder="Email"   x:Name="EntryEmail" PlaceholderColor="Gray" TextChanged="EntryEmail_OnTextChanged" TextColor="White" HorizontalOptions="Center" WidthRequest="300" />
+        <Entry Grid.Row="3" Placeholder="Email"   x:Name="EntryEmail" Text="{Binding Email}" PlaceholderColor="Gray" TextChanged="EntryEmail_OnTextChanged" TextColor="White" HorizontalOptions="Center" WidthRequest="300" />
 
 
         <BoxView  BackgroundColor="#373750" Grid.Row="4" HorizontalOptions="Center" WidthRequest="380" CornerRadius="15"/>
-        <Entry Grid.Row="4" VerticalOptions="Start" Placeholder="Password" PlaceholderColor="Gray" TextChanged="EntryPassword_OnTextChanged" x:Name="EntryPassword" IsPassword="True" TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
+        <Entry Grid.Row="4" VerticalOptions="Start" Placeholder="Password" PlaceholderColor="Gray" Text="{Binding Password}" TextChanged="EntryPassword_OnTextChanged" x:Name="EntryPassword" IsPassword="True" TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
        
             <Image Grid.Row="4" IsVisible="False"  x:Name="EyeImage" Opacity="0.5"   HorizontalOptions="EndAndExpand" WidthRequest="25" HeightRequest="25" VerticalOptions="Center"  >
             <Image.GestureRecognizers>
                 <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" NumberOfTapsRequired="1" />
             </Image.GestureRecognizers>
-        </Image>
-        <Label Grid.Row="5" IsVisible="False"  x:Name="LabelInformation"  TextColor="#D6325C" Text="uyasg uaysgd auygsd uaygsd uaygd uaygsd uaygsduaygdu aygd uyag udyga ud" FontSize="12" HorizontalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            </Image>
+        <Label Grid.Row="5" IsVisible="False"  x:Name="LabelInformation"  TextColor="#D6325C" Text="{Binding LabelMessage}" FontSize="12" HorizontalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="Start"/>
 
         
 
-        <Button Grid.Row="7" Text="Login" WidthRequest="380" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White"  Clicked="LoginButton_OnClicked"/>
-        <Button Grid.Row="8" Text="Sign up" BackgroundColor="Transparent" TextColor="White" Clicked="Button_OnClicked"/>
-        <Button Grid.Row="9" Text="Forgot password?" TextColor="#D6325C" BackgroundColor="Transparent" Clicked="ForgotButton_OnClicked"/>
+        <Button Grid.Row="7" Text="Login" WidthRequest="380" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White" Command="LoginCommand"  />
+        <Button Grid.Row="8" Text="Sign up" BackgroundColor="Transparent" TextColor="White" Clicked="Button_OnClicked" Command="SignupCommand"/>
+        <Button Grid.Row="9" Text="Forgot password?" TextColor="#D6325C" BackgroundColor="Transparent" Clicked="ForgotButton_OnClicked" Command="ForgotPasswordCommand"/>
     </Grid>
 </ContentPage>
