@@ -36,6 +36,7 @@ namespace DailyExpensesApp.Models
         } }
         public string LabelMessage { get {  return _labelMessage;} set { _labelMessage = value; OnPropertyChanged(); } }
 
+      
         public ICommand LoginCommand { get; set; }
        
 

@@ -108,5 +108,7 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Xamarin.Forms.Core.pdb
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Xamarin.Forms.Platform.Android.pdb
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Xamarin.Forms.Xaml.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\bin\Debug\netstandard2.0\DailyExpensesApp.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\bin\Debug\DailyExpensesApp.dll.mdb
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\linksrc\DailyExpensesApp.dll.mdb
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\linksrc\Rg.Plugins.Popup.Droid.dll.mdb
