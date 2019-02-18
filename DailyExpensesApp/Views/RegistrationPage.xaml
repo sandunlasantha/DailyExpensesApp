@@ -1,11 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm1="clr-namespace:DailyExpensesApp.ViewModels"
              x:Class="DailyExpensesApp.Views.RegistrationPage"
              NavigationPage.HasBackButton="False"
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="#201D30"
              >
+    <ContentPage.BindingContext>
+        <vm1:RegistrationViewModel/>
+    </ContentPage.BindingContext>
     <Grid Padding="10,0,0,10" HorizontalOptions="Center" HeightRequest="500"
           
           >
@@ -32,18 +36,18 @@
 
         <Image x:Name="ImageLogo" Grid.Row="1" WidthRequest="150" HeightRequest="150" HorizontalOptions="Center" VerticalOptions="Start" />
         <BoxView  BackgroundColor="#373750" Grid.Row="3" HorizontalOptions="Center" WidthRequest="400" CornerRadius="15"/>
-        <Entry Grid.Row="3" Placeholder="Name" x:Name="EntryName" PlaceholderColor="Gray"  TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
+        <Entry Grid.Row="3" Placeholder="Name" x:Name="EntryName" Text="{Binding Name}" PlaceholderColor="Gray"  TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
         <BoxView  BackgroundColor="#373750" Grid.Row="4" HorizontalOptions="Center" WidthRequest="400" CornerRadius="15"/>
-        <Entry Grid.Row="4" Placeholder="Email Address" x:Name="EntryEmail" PlaceholderColor="Gray"  TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
+        <Entry Grid.Row="4" Placeholder="Email Address" x:Name="EntryEmail" Text="{Binding Email}" PlaceholderColor="Gray"  TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
         <BoxView  BackgroundColor="#373750" Grid.Row="5" HorizontalOptions="Center" WidthRequest="400" CornerRadius="15"/>
-        <Entry Grid.Row="5" Placeholder="Password" x:Name="EntryPassword" PlaceholderColor="Gray" TextChanged="EntryPassword_OnTextChanged" IsPassword="True"  TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
+        <Entry Grid.Row="5" Placeholder="Password" Text="{Binding Password}" x:Name="EntryPassword" PlaceholderColor="Gray" TextChanged="EntryPassword_OnTextChanged" IsPassword="True"  TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
             <Image Grid.Row="5"  x:Name="EyeImage1" IsVisible="False" Opacity="0.5"   HorizontalOptions="EndAndExpand" WidthRequest="25" HeightRequest="25" VerticalOptions="CenterAndExpand"  >
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer1_OnTapped" NumberOfTapsRequired="1" />
                 </Image.GestureRecognizers>
             </Image>
         <BoxView  BackgroundColor="#373750" Grid.Row="6" HorizontalOptions="Center" WidthRequest="400" CornerRadius="15"/>
-        <Entry Grid.Row="6" Placeholder="Confirm Password" PlaceholderColor="Gray" TextChanged="EntryConfirmPassword_OnTextChanged" x:Name="EntryConfirmPassword" IsPassword="True" TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
+        <Entry Grid.Row="6" Placeholder="Confirm Password" Text="{Binding ConfirmPassword}" PlaceholderColor="Gray" TextChanged="EntryConfirmPassword_OnTextChanged" x:Name="EntryConfirmPassword" IsPassword="True" TextColor="White" HorizontalOptions="Center" WidthRequest="300"/>
             <Image Grid.Row="6"  x:Name="EyeImage2" Opacity="0.5" IsVisible="False"   HorizontalOptions="EndAndExpand" WidthRequest="25" HeightRequest="25" VerticalOptions="CenterAndExpand"  >
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGestureRecognizer2_OnTapped" NumberOfTapsRequired="1" />
@@ -53,7 +57,7 @@
         <Label Grid.Row="7" IsVisible="False"  x:Name="LabelInformation"  TextColor="#D6325C" Text="uyasg uaysgd auygsd uaygsd uaygd uaygsd uaygsduaygdu aygd uyag udyga ud" FontSize="12" HorizontalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="Start"/>
 
 
-        <Button Grid.Row="9" Text="Register" WidthRequest="300" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White" Clicked="RegisterButton_OnClicked" />
+        <Button Grid.Row="9" Text="Register" WidthRequest="300" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White" Command="{Binding RegistrationCommand}" />
         <Button Grid.Row="10" Text="Already have an account?" TextColor="#D6325C" BackgroundColor="Transparent" Clicked="Button_OnClicked"/>
     </Grid>
 </ContentPage>

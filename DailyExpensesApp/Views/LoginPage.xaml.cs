@@ -19,7 +19,7 @@ namespace DailyExpensesApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
     {
-         LoginViewModel loginViewModel;
+       
 
 		public LoginPage ()
 		{

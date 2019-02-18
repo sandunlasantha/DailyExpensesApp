@@ -26,6 +26,7 @@ namespace DailyExpensesApp.Models
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        
 
         public string Email { get { return _email; } set { _email = value;
             OnPropertyChanged();
@@ -33,7 +34,7 @@ namespace DailyExpensesApp.Models
         public string Password { get { return _password; } set { _password = value;
             OnPropertyChanged();
         } }
-        public string LabelMessage { get { OnPropertyChanged(); return _labelMessage;} set { _labelMessage = value;  } }
+        public string LabelMessage { get {  return _labelMessage;} set { _labelMessage = value; OnPropertyChanged(); } }
 
         public ICommand LoginCommand { get; set; }
        
@@ -45,6 +46,7 @@ namespace DailyExpensesApp.Models
 
         private void Login()
         {
+            Validations validations = new Validations();
             {
 
                 try
@@ -54,13 +56,14 @@ namespace DailyExpensesApp.Models
                     {
                         throw new ArgumentNullException();
                     }
-                    Validations validations = new Validations();
+
+                  
                     if (validations.ValidateEmail(_email) == false)
                     {
                         throw new AccessViolationException();
                     }
 
-                    if (validations.ValidatePassword(_password))
+                    if (validations.ValidatePassword(_password) == true)
                     {
 
 
@@ -107,7 +110,7 @@ namespace DailyExpensesApp.Models
                     {
 
                         _labelMessage = "Password should contain both uppercase, lowercase characters and at least one decimal number and more than 6 characters";
-
+                        Application.Current.MainPage.DisplayAlert("Alert", "Password should contain both uppercase, lowercase characters and at least one decimal number and more than 6 characters", "Ok");
                     }
                 }
 
@@ -123,7 +126,7 @@ namespace DailyExpensesApp.Models
                 {
 
                     _labelMessage = "Email is not in the correct format";
-
+                    Application.Current.MainPage.DisplayAlert("Alert", "Email is not in the correct format", "Ok");
                 }
                 catch (AbandonedMutexException)
                 {
