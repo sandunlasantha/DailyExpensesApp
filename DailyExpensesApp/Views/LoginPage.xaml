@@ -47,11 +47,11 @@
             </Image.GestureRecognizers>
 
             </Image>
-        <Label Grid.Row="5" IsVisible="False"  x:Name="LabelInformation"  TextColor="#D6325C" Text="{Binding LabelMessage}" FontSize="12" HorizontalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="Start"/>
+        <Label Grid.Row="5"   x:Name="LabelInformation"  TextColor="#D6325C" Text="{Binding LabelMessage}" FontSize="12" HorizontalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="Start"/>
 
-        
 
-        <Button Grid.Row="7" Text="Login" WidthRequest="380" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White" Command="LoginCommand"  />
+
+        <Button Grid.Row="7" Text="Login" WidthRequest="380" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White" Command="{Binding LoginCommand}"  />
         <Button Grid.Row="8" Text="Sign up" BackgroundColor="Transparent" TextColor="White" Clicked="Button_OnClicked" Command="SignupCommand"/>
         <Button Grid.Row="9" Text="Forgot password?" TextColor="#D6325C" BackgroundColor="Transparent" Clicked="ForgotButton_OnClicked" Command="ForgotPasswordCommand"/>
     </Grid>

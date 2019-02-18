@@ -33,20 +33,18 @@ namespace DailyExpensesApp.Models
         public string Password { get { return _password; } set { _password = value;
             OnPropertyChanged();
         } }
-        public string LabelMessage { get { return _labelMessage; } set { _labelMessage = value; OnPropertyChanged(); } }
+        public string LabelMessage { get { OnPropertyChanged(); return _labelMessage;} set { _labelMessage = value;  } }
 
         public ICommand LoginCommand { get; set; }
+       
 
         public LoginViewModel()
         {
             LoginCommand = new Command(Login);
         }
-        
 
-        private void Login(object obj)
+        private void Login()
         {
-            Validations validations = new Validations();
-
             {
 
                 try
@@ -56,6 +54,7 @@ namespace DailyExpensesApp.Models
                     {
                         throw new ArgumentNullException();
                     }
+                    Validations validations = new Validations();
                     if (validations.ValidateEmail(_email) == false)
                     {
                         throw new AccessViolationException();
@@ -90,14 +89,14 @@ namespace DailyExpensesApp.Models
 
                                 PopupNavigation.Instance.PushAsync(new PopupView());
 
-                               // Navigation.PushAsync(new DailyExpenses());
+                                // Navigation.PushAsync(new DailyExpenses());
 
                             }
                             else
                             {
                                 Application.Current.MainPage.DisplayAlert("Alert", "Error", "OK");
-                             //   DisplayAlert("Alert", "Error", "OK");
-                               
+                                //   DisplayAlert("Alert", "Error", "OK");
+
                             }
 
                         }
@@ -117,17 +116,18 @@ namespace DailyExpensesApp.Models
                 {
 
                     _labelMessage = "Username or password is empty";
+                    Application.Current.MainPage.DisplayAlert("Alert", "Username or password is empty", "Ok");
 
                 }
                 catch (AccessViolationException)
                 {
-                  
+
                     _labelMessage = "Email is not in the correct format";
 
                 }
                 catch (AbandonedMutexException)
                 {
-                    Application.Current.MainPage.DisplayAlert("Alert", "Forgot password?", "Reset","Cancel");
+                    Application.Current.MainPage.DisplayAlert("Alert", "Forgot password?", "Reset", "Cancel");
                     //DisplayAlert("Alert", "Forgot password?", "Reset", "Cancel");
                 }
                 catch (NullReferenceException)

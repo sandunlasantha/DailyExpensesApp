@@ -60,3 +60,7 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.core.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.provider.sqlite3.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.IOS.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.IOS.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.pdb

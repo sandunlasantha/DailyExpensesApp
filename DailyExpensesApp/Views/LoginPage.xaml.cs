@@ -18,12 +18,14 @@ namespace DailyExpensesApp.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class LoginPage : ContentPage
-	{
+    {
+         LoginViewModel loginViewModel;
+
 		public LoginPage ()
 		{
 
 			InitializeComponent ();
-            this.BindingContext = new LoginViewModel();
+         
             EyeImage.Source = ImageSource.FromResource("DailyExpensesApp.Images.eye.png");
             ImageLogo.Source = ImageSource.FromResource("DailyExpensesApp.Images.logo.png");
 
@@ -33,7 +35,7 @@ namespace DailyExpensesApp.Views
         {
            
             InitializeComponent();
-            this.BindingContext = new LoginViewModel();
+            
             EntryEmail.Text = username;
             EntryPassword.Text = password;
             EyeImage.Source = ImageSource.FromResource("DailyExpensesApp.Images.eye.png");
