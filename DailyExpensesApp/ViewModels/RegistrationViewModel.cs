@@ -20,7 +20,7 @@ namespace DailyExpensesApp.ViewModels
         private string _email;
         private string _password;
         private string _confirmPassword;
-     
+        private string _labelTextMessage;
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -28,11 +28,11 @@ namespace DailyExpensesApp.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public String Name { get {return _name; }  set { _name = value; } }
+        public String Name { get { return _name; } set { _name = value; } }
         public String Email { get { return _email; } set { _email = value; } }
         public String Password { get { return _password; } set { _password = value; } }
         public String ConfirmPassword { get { return _confirmPassword; } set { _confirmPassword = value; } }
-
+        public string LabelTextMessage { get { return _labelTextMessage; } set { _labelTextMessage = value; OnPropertyChanged();} }
         public ICommand RegistrationCommand { get; set; }
 
         public RegistrationViewModel()
@@ -45,7 +45,7 @@ namespace DailyExpensesApp.ViewModels
             try
             {
                 if (_password == null || _confirmPassword == null || _email == null ||
-                    _name== null)
+                    _name == null)
                 {
                     throw new ArgumentNullException();
                 }
@@ -77,7 +77,7 @@ namespace DailyExpensesApp.ViewModels
                 };
                 using (SQLiteConnection connection = new SQLiteConnection(App.filepath1))
                 {
-                   // await PopupNavigation.Instance.PushAsync(new PopupView());
+                    // await PopupNavigation.Instance.PushAsync(new PopupView());
 
                     connection.CreateTable<Users>();
 
@@ -92,7 +92,7 @@ namespace DailyExpensesApp.ViewModels
                     Application.Current.MainPage.DisplayAlert("Alert", "Registration successfull", "OK");
                     _password = null;
                     _email = null;
-                   _confirmPassword = null;
+                    _confirmPassword = null;
                     _name = null;
 
 
@@ -105,7 +105,7 @@ namespace DailyExpensesApp.ViewModels
             catch (ArgumentNullException)
             {
                 // LabelInformation.IsVisible = true;
-                //  LabelInformation.Text = "Missing fields";
+                LabelTextMessage = "Missing fields";
                 Application.Current.MainPage.DisplayAlert("Alert", "Missing fields", "OK");
             }
 
@@ -113,7 +113,7 @@ namespace DailyExpensesApp.ViewModels
             {
                 // LabelInformation.IsVisible = true;
                 Application.Current.MainPage.DisplayAlert("Alert", "Email is not in the correct format", "OK");
-                //LabelInformation.Text = "Email is not in the correct format";
+                LabelTextMessage = "Email is not in the correct format";
                 //EntryEmail.Text = "";
             }
 
@@ -121,7 +121,7 @@ namespace DailyExpensesApp.ViewModels
             {
                 // LabelInformation.IsVisible = true;
                 Application.Current.MainPage.DisplayAlert("Alert", "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters", "OK");
-                // LabelInformation.Text = "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters";
+                LabelTextMessage = "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters";
             }
 
             catch (AmbiguousMatchException)
@@ -129,7 +129,7 @@ namespace DailyExpensesApp.ViewModels
                 Application.Current.MainPage.DisplayAlert("Alert", "Password doesn't match", "OK");
                 // await DisplayAlert("Alert", "Password doesn't match", "OK");
                 //  LabelInformation.IsVisible = true;
-                //  LabelInformation.Text = "Password doesn't match";
+                LabelTextMessage = "Password doesn't match";
                 //  EntryPassword.Text = "";
                 //  EntryConfirmPassword.Text = "";
             }

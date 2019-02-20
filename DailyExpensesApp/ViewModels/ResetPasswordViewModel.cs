@@ -15,6 +15,7 @@ namespace DailyExpensesApp.ViewModels
         private string _email;
         private string _newPassword;
         private string _newConfirmPassword;
+        private string _labelMessage;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,7 +30,9 @@ namespace DailyExpensesApp.ViewModels
         public String Email
         {
             get { return _email; }
-            set { _email = value;
+            set
+            {
+                _email = value;
                 OnPropertyChanged();
             }
         }
@@ -45,6 +48,13 @@ namespace DailyExpensesApp.ViewModels
             get { return _newConfirmPassword; }
             set { _newConfirmPassword = value; OnPropertyChanged(); }
         }
+
+       
+
+        public string LabelMessage { get { return _labelMessage; } set { _labelMessage = value; OnPropertyChanged("ytfytfytf"); } }
+
+
+
 
         public ICommand UpdatePasswordCommand { get; set; }
 

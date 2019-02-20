@@ -54,7 +54,7 @@
                 </Image.GestureRecognizers>
             </Image>
 
-        <Label Grid.Row="7" IsVisible="False"  x:Name="LabelInformation"  TextColor="#D6325C" Text="uyasg uaysgd auygsd uaygsd uaygd uaygsd uaygsduaygdu aygd uyag udyga ud" FontSize="12" HorizontalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="Start"/>
+        <Label Grid.Row="7"   x:Name="LabelInformation" Text="{Binding LabelTextMessage}"  TextColor="#D6325C"  FontSize="12" HorizontalTextAlignment="Start" HorizontalOptions="Center" VerticalOptions="Start"/>
 
 
         <Button Grid.Row="9" Text="Register" WidthRequest="300" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White" Command="{Binding RegistrationCommand}" />

@@ -19,7 +19,7 @@ namespace DailyExpensesApp.Models
         private string _email;
         private string _password;
         private string _labelMessage;
-
+  
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -29,11 +29,12 @@ namespace DailyExpensesApp.Models
         
 
         public string Email { get { return _email; } set { _email = value;
-            OnPropertyChanged();
+           
         } }
         public string Password { get { return _password; } set { _password = value;
-            OnPropertyChanged();
+            
         } }
+
         public string LabelMessage { get {  return _labelMessage;} set { _labelMessage = value; OnPropertyChanged(); } }
 
       
@@ -43,6 +44,7 @@ namespace DailyExpensesApp.Models
         public LoginViewModel()
         {
             LoginCommand = new Command(Login);
+           
         }
 
         private void Login()
@@ -93,7 +95,7 @@ namespace DailyExpensesApp.Models
 
                                 PopupNavigation.Instance.PushAsync(new PopupView());
 
-                                // Navigation.PushAsync(new DailyExpenses());
+                                Application.Current.MainPage.Navigation.PushAsync(new DailyExpenses());
 
                             }
                             else
@@ -110,7 +112,8 @@ namespace DailyExpensesApp.Models
                     else
                     {
 
-                        _labelMessage = "Password should contain both uppercase, lowercase characters and at least one decimal number and more than 6 characters";
+                        LabelMessage = "Password should contain both uppercase, lowercase characters and at least one decimal number and more than 6 characters";
+                       
                         Application.Current.MainPage.DisplayAlert("Alert", "Password should contain both uppercase, lowercase characters and at least one decimal number and more than 6 characters", "Ok");
                     }
                 }
@@ -119,26 +122,28 @@ namespace DailyExpensesApp.Models
                 catch (ArgumentNullException)
                 {
 
-                    _labelMessage = "Username or password is empty";
+                    LabelMessage = "Username or password is empty";
+               
                     Application.Current.MainPage.DisplayAlert("Alert", "Username or password is empty", "Ok");
 
                 }
                 catch (AccessViolationException)
                 {
 
-                    _labelMessage = "Email is not in the correct format";
+                 
                     Application.Current.MainPage.DisplayAlert("Alert", "Email is not in the correct format", "Ok");
                 }
                 catch (AbandonedMutexException)
                 {
                     Application.Current.MainPage.DisplayAlert("Alert", "Forgot password?", "Reset", "Cancel");
+                
                     //DisplayAlert("Alert", "Forgot password?", "Reset", "Cancel");
                 }
                 catch (NullReferenceException)
                 {
                     Application.Current.MainPage.DisplayAlert("Alert", "You have not registered yet", "Register", "Cancel");
 
-
+                
 
 
                     //var alert1 = await DisplayAlert("Alert", "You have not registered yet", "Register", "Cancel");
