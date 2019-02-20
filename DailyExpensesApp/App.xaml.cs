@@ -24,7 +24,6 @@ namespace DailyExpensesApp
             filepath1 = path;
         }
 
-        
 
 
         protected override void OnStart()

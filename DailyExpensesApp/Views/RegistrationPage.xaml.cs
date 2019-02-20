@@ -16,7 +16,7 @@ namespace DailyExpensesApp.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class RegistrationPage : ContentPage
 	{
-        Validations validations = new Validations();
+       
         public RegistrationPage()
         {
             InitializeComponent();
@@ -40,20 +40,6 @@ namespace DailyExpensesApp.Views
         {
            await Navigation.PushAsync(new LoginPage());
         }
-
-         
-
-
-
-
-
-
-
-
-
-
-
-
 
          private void TapGestureRecognizer1_OnTapped(object sender, EventArgs e)
          {

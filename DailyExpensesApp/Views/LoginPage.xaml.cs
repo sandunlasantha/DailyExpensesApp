@@ -43,10 +43,7 @@ namespace DailyExpensesApp.Views
 
         }
 
-        async void Button_OnClicked(object sender, EventArgs e)
-        {
-           await Navigation.PushAsync(new RegistrationPage());
-        }
+        
 
          private void ForgotButton_OnClicked(object sender, EventArgs e)
          {
@@ -90,23 +87,5 @@ namespace DailyExpensesApp.Views
         }
     }
 
-    [Serializable]
-    internal class EmailTruePasswordIncorrectException : Exception
-    {
-        public EmailTruePasswordIncorrectException()
-        {
-        }
-
-        public EmailTruePasswordIncorrectException(string message) : base(message)
-        {
-        }
-
-        public EmailTruePasswordIncorrectException(string message, Exception innerException) : base(message, innerException)
-        {
-        }
-
-        protected EmailTruePasswordIncorrectException(SerializationInfo info, StreamingContext context) : base(info, context)
-        {
-        }
-    }
+   
 }

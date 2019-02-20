@@ -1,4 +1,6 @@
 ﻿using DailyExpensesApp.DBConnection;
+using DailyExpensesApp.Views;
+using Rg.Plugins.Popup.Services;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -51,7 +53,7 @@ namespace DailyExpensesApp.ViewModels
 
        
 
-        public string LabelMessage { get { return _labelMessage; } set { _labelMessage = value; OnPropertyChanged("ytfytfytf"); } }
+        public string LabelMessage { get { return _labelMessage; } set { _labelMessage = value; OnPropertyChanged(); } }
 
 
 
@@ -69,9 +71,10 @@ namespace DailyExpensesApp.ViewModels
 
             if (_email == null || _newPassword == null || _newConfirmPassword == null)
             {
-                // LabelInformation.Text = "Empty fields";
-                // LabelInformation.IsVisible = true;
-                Application.Current.MainPage.DisplayAlert("Alert", "Empty fields", "OK");
+                
+            
+              
+                LabelMessage = "Empty Fields";
 
             }
             else
@@ -91,16 +94,16 @@ namespace DailyExpensesApp.ViewModels
 
                     using (SQLiteConnection connection = new SQLiteConnection(App.filepath1))
                     {
-                        //await PopupNavigation.Instance.PushAsync(new PopupView());
+                         PopupNavigation.Instance.PushAsync(new PopupView());
                         var userx = connection.Table<Users>();
 
                         var user2 = userx.Where(x => x.Email == _email)
-                            .FirstOrDefault(); //Linq Query 
+                            .FirstOrDefault(); 
 
 
                         if (_newPassword != user2.Password)
                         {
-                            if (user2.Email == _email)
+                            if (user2.Email!=null)
                             {
                                 if (_newPassword == NewConfirmPassword)
                                 {
@@ -108,36 +111,33 @@ namespace DailyExpensesApp.ViewModels
                                         validations.ValidatePassword(_newConfirmPassword))
                                     {
 
-                                        //LabelInformation.IsVisible = false;
-
-
-
                                         user2.Email = _email;
                                         user2.Password = _newPassword;
                                         connection.Update(user2);
-                                        //await PopupNavigation.Instance.PopAsync();
-                                        // var updated = await DisplayAlert("Success", "Password successfully updated. Return to login?", "ok", "cancel");
-                                        //if (updated)
-                                        // {
-                                        //     await Navigation.PushAsync(new LoginPage());
-                                        // }
-                                        Application.Current.MainPage.DisplayAlert("Alert", "Password successfully updated. Return to login?", "OK");
+                                         PopupNavigation.Instance.PopAsync();
+                                        
+                                        var updated =  Application.Current.MainPage.DisplayAlert("Success", "Password successfully updated. Return to login?", "ok", "cancel");
+
+                                        if (updated!=null)
+                                         {
+                                             Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                                         }
                                     }
                                     else
                                     {
-                                        // await PopupNavigation.Instance.PopAsync();
-                                        // LabelInformation.Text = "Password fields are not in the correct format";
-                                        // LabelInformation.IsVisible = true;
-                                        Application.Current.MainPage.DisplayAlert("Alert", "Password fields are not in the correct format", "OK");
+                                        PopupNavigation.Instance.PopAsync();
+                                        LabelMessage = "Password fields are not in the correct format";
+                                       
+                                      
                                     }
 
                                 }
                                 else
                                 {
-                                    //  await PopupNavigation.Instance.PopAsync();
-                                    //   LabelInformation.Text = "Password doesnt match";
-                                    //  LabelInformation.IsVisible = true;
-                                    Application.Current.MainPage.DisplayAlert("Alert", "Password doesnt match", "OK");
+                                   PopupNavigation.Instance.PopAsync();
+                                    LabelMessage = "Password doesnt match";
+                                  
+                                 
                                 }
 
                             }
@@ -146,17 +146,15 @@ namespace DailyExpensesApp.ViewModels
 
                             else
                             {
-                                //   await PopupNavigation.Instance.PopAsync();
-                                //   LabelInformation.IsVisible = false;
-                                //   await DisplayAlert("Reset error", "User not available", "OK");
+                               PopupNavigation.Instance.PopAsync();
+                               LabelMessage = "";
                                 Application.Current.MainPage.DisplayAlert("Alert", "User not available", "OK");
                             }
                         }
                         else
                         {
-                            //   await PopupNavigation.Instance.PopAsync();
-                            //   LabelInformation.IsVisible = false;
-                            //   await DisplayAlert("Reset error", "You've entered the previous password", "OK");
+                             PopupNavigation.Instance.PopAsync();
+                             LabelMessage = "";
                             Application.Current.MainPage.DisplayAlert("Alert", "You've entered the previous password", "OK");
                         }
 
@@ -167,10 +165,10 @@ namespace DailyExpensesApp.ViewModels
                 }
                 catch (Exception)
                 {
-                    //  await PopupNavigation.Instance.PopAsync();
-                    //  LabelInformation.IsVisible = false;
-                    //  EntryEmail = null;
-                    //   await DisplayAlert("Reset error", "User not available", "OK");
+                    PopupNavigation.Instance.PopAsync();
+                  
+                    Email = null;
+                    LabelMessage = "";
                     Application.Current.MainPage.DisplayAlert("Alert", "User not available", "OK");
                 }
 

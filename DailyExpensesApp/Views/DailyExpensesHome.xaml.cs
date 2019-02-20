@@ -19,5 +19,15 @@ namespace DailyExpensesApp.Views
 
             PopupNavigation.Instance.PopAsync();
         }
+
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
+        private void Button_OnClicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new LoginPage());
+        }
     }
 }

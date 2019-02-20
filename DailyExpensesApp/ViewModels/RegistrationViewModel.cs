@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Input;
+using DailyExpensesApp.Models;
 using Xamarin.Forms;
 
 namespace DailyExpensesApp.ViewModels
@@ -40,29 +41,29 @@ namespace DailyExpensesApp.ViewModels
             RegistrationCommand = new Command(Register);
         }
 
-        private void Register()
+        private async void Register()
         {
             try
             {
                 if (_password == null || _confirmPassword == null || _email == null ||
                     _name == null)
                 {
-                    throw new ArgumentNullException();
+                    throw new EmailNullPasswordNullException();
                 }
 
                 if (validations.ValidateEmail(_email) == false)
                 {
-                    throw new AbandonedMutexException();
+                    throw new InvalidEmailException();
                 }
 
                 if (_password != _confirmPassword)
                 {
-                    throw new AmbiguousMatchException();
+                    throw new PasswordNotMatchException();
                 }
 
                 if (validations.ValidatePassword(_password) == false)
                 {
-                    throw new ArithmeticException();
+                    throw new InvalidPasswordException();
                 }
 
 
@@ -75,9 +76,10 @@ namespace DailyExpensesApp.ViewModels
                     Password = _password
 
                 };
+
                 using (SQLiteConnection connection = new SQLiteConnection(App.filepath1))
                 {
-                    // await PopupNavigation.Instance.PushAsync(new PopupView());
+                    await PopupNavigation.Instance.PushAsync(new PopupView());
 
                     connection.CreateTable<Users>();
 
@@ -86,10 +88,11 @@ namespace DailyExpensesApp.ViewModels
 
                     connection.Insert(user);
 
-                    //await PopupNavigation.Instance.PopAsync();
+                    await PopupNavigation.Instance.PopAsync();
 
-                    //  await DisplayAlert("Message", "Registration successfull", "Ok");
-                    Application.Current.MainPage.DisplayAlert("Alert", "Registration successfull", "OK");
+
+                    await Application.Current.MainPage.DisplayAlert("Alert", "Registration successfull", "OK");
+                    LabelTextMessage = "";
                     _password = null;
                     _email = null;
                     _confirmPassword = null;
@@ -102,31 +105,31 @@ namespace DailyExpensesApp.ViewModels
 
 
             }
-            catch (ArgumentNullException)
+            catch (EmailNullPasswordNullException)
             {
                 // LabelInformation.IsVisible = true;
                 LabelTextMessage = "Missing fields";
-                Application.Current.MainPage.DisplayAlert("Alert", "Missing fields", "OK");
+               // Application.Current.MainPage.DisplayAlert("Alert", "Missing fields", "OK");
             }
 
-            catch (AbandonedMutexException)
+            catch (InvalidEmailException)
             {
                 // LabelInformation.IsVisible = true;
-                Application.Current.MainPage.DisplayAlert("Alert", "Email is not in the correct format", "OK");
+              //  Application.Current.MainPage.DisplayAlert("Alert", "Email is not in the correct format", "OK");
                 LabelTextMessage = "Email is not in the correct format";
                 //EntryEmail.Text = "";
             }
 
-            catch (ArithmeticException)
+            catch (InvalidPasswordException)
             {
                 // LabelInformation.IsVisible = true;
-                Application.Current.MainPage.DisplayAlert("Alert", "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters", "OK");
+              //  Application.Current.MainPage.DisplayAlert("Alert", "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters", "OK");
                 LabelTextMessage = "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters";
             }
 
-            catch (AmbiguousMatchException)
+            catch (PasswordNotMatchException)
             {
-                Application.Current.MainPage.DisplayAlert("Alert", "Password doesn't match", "OK");
+               // Application.Current.MainPage.DisplayAlert("Alert", "Password doesn't match", "OK");
                 // await DisplayAlert("Alert", "Password doesn't match", "OK");
                 //  LabelInformation.IsVisible = true;
                 LabelTextMessage = "Password doesn't match";
@@ -137,7 +140,7 @@ namespace DailyExpensesApp.ViewModels
             {
                 //  await DisplayAlert("Registration error", "Username is already taken", "OK");
                 //  EntryEmail.Text = "";
-                Application.Current.MainPage.DisplayAlert("Alert", "Username is already taken", "OK");
+                await Application.Current.MainPage.DisplayAlert("Alert", "Username is already taken", "OK");
             }
         }
     }

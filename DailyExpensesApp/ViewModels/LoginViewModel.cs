@@ -1,197 +1,133 @@
 ﻿using DailyExpensesApp.DBConnection;
+using DailyExpensesApp.Models;
 using DailyExpensesApp.Views;
 using Rg.Plugins.Popup.Services;
 using SQLite;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace DailyExpensesApp.Models
+namespace DailyExpensesApp.ViewModels
 {
     class LoginViewModel : INotifyPropertyChanged
     {
-
+        Validations validations = new Validations();
         private string _email;
         private string _password;
         private string _labelMessage;
-  
-        public event PropertyChangedEventHandler PropertyChanged;
 
+        public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        
 
-        public string Email { get { return _email; } set { _email = value;
-           
-        } }
-        public string Password { get { return _password; } set { _password = value;
-            
-        } }
 
+        public String Email { get { return _email; } set { _email = value; } }
+        public String Password { get { return _password; } set { _password = value;} }
         public string LabelMessage { get {  return _labelMessage;} set { _labelMessage = value; OnPropertyChanged(); } }
-
-      
         public ICommand LoginCommand { get; set; }
        
 
         public LoginViewModel()
         {
             LoginCommand = new Command(Login);
-           
         }
 
-        private void Login()
+        private async void  Login()
         {
-            Validations validations = new Validations();
+            try
             {
+                if (_email == null || _password == null)
+                {
+                    throw new EmailNullPasswordNullException();
+                }
 
-                try
+                if (validations.ValidateEmail(_email) == false)
+                {
+                    throw new InvalidEmailException();
+                }
+
+                if (validations.ValidatePassword(_password) == false)
+                {
+                    throw new InvalidPasswordException();
+                }
+
+                using (SQLiteConnection connection = new SQLiteConnection(App.filepath1))
                 {
 
-                    if (_password == null || _email == null)
-                    {
-                        throw new ArgumentNullException();
-                    }
+                    var user = connection.Table<Users>();
+                    var user1 = user.Where(x => x.Email == _email && x.Password == _password).FirstOrDefault();
+                    var user2 = user.Where(x => x.Email == _email)
+                        .FirstOrDefault();
 
-                  
-                    if (validations.ValidateEmail(_email) == false)
-                    {
-                        throw new AccessViolationException();
-                    }
-
-                    if (validations.ValidatePassword(_password) == true)
+                    if (user2!=null)
                     {
 
+                        throw new EmailTruePasswordFalseException();
 
-                        using (SQLiteConnection connection = new SQLiteConnection(App.filepath1))
-                        {
-
-
-
-                            var user = connection.Table<Users>();
-
-                            var user1 = user.Where(x => x.Email == _email && x.Password == _password)
-                                .FirstOrDefault();
-
-                            var user2 = user.Where(x => x.Email == _email)
-                                .FirstOrDefault();
-
-                            if (user2.Email == _email && user2.Password != _password)
-                            {
-
-                                throw new EmailTruePasswordIncorrectException();
-
-                            }
-
-                            if (user1.Email == _email && user1.Password == _password)
-                            {
-
-                                PopupNavigation.Instance.PushAsync(new PopupView());
-
-                                Application.Current.MainPage.Navigation.PushAsync(new DailyExpenses());
-
-                            }
-                            else
-                            {
-                                Application.Current.MainPage.DisplayAlert("Alert", "Error", "OK");
-                                //   DisplayAlert("Alert", "Error", "OK");
-
-                            }
-
-                        }
                     }
 
-
+                    if (user1 != null) 
+                    {
+                        await PopupNavigation.Instance.PushAsync(new PopupView());
+                        await Application.Current.MainPage.Navigation.PushAsync(new DailyExpenses());
+                    }
                     else
                     {
-
-                        LabelMessage = "Password should contain both uppercase, lowercase characters and at least one decimal number and more than 6 characters";
-                       
-                        Application.Current.MainPage.DisplayAlert("Alert", "Password should contain both uppercase, lowercase characters and at least one decimal number and more than 6 characters", "Ok");
+                        await Application.Current.MainPage.DisplayAlert("Alert", "Error", "OK");
                     }
+
+
+
                 }
-
-
-                catch (ArgumentNullException)
-                {
-
-                    LabelMessage = "Username or password is empty";
+            }
+            catch (EmailNullPasswordNullException)
+            {
+                LabelMessage = "Username or password is empty";
+            }
+            catch (InvalidEmailException)
+            {
+                LabelMessage = "Email is not in the correct format";
+                await Application.Current.MainPage.DisplayAlert("Login error", "Email is not in the correct format", "Ok");
+            }
+            catch (InvalidPasswordException)
+            {
+                await Application.Current.MainPage.DisplayAlert("Login error", "Password is not in the correct format", "Ok");
+                LabelMessage = "Password is not in the correct format";
+            }
+            catch (NullReferenceException)
+            {
+                LabelMessage = "User not available";
                
-                    Application.Current.MainPage.DisplayAlert("Alert", "Username or password is empty", "Ok");
 
-                }
-                catch (AccessViolationException)
+                var alert = await Application.Current.MainPage.DisplayAlert("Login error", "User not available", "Sign up", "Cancel");
+
+                if (alert)
                 {
-
-                 
-                    Application.Current.MainPage.DisplayAlert("Alert", "Email is not in the correct format", "Ok");
-                }
-                catch (AbandonedMutexException)
-                {
-                    Application.Current.MainPage.DisplayAlert("Alert", "Forgot password?", "Reset", "Cancel");
-                
-                    //DisplayAlert("Alert", "Forgot password?", "Reset", "Cancel");
-                }
-                catch (NullReferenceException)
-                {
-                    Application.Current.MainPage.DisplayAlert("Alert", "You have not registered yet", "Register", "Cancel");
-
-                
-
-
-                    //var alert1 = await DisplayAlert("Alert", "You have not registered yet", "Register", "Cancel");
-                    //if (alert1)
-                    //{
-                    //    await Navigation.PushAsync(new RegistrationPage(EntryEmail.Text));
-                    //}
-
-
-                }
-
-                catch (EmailTruePasswordIncorrectException)
-                {
-                    Application.Current.MainPage.DisplayAlert("Login error", "Forgot password?", "Yes", "Cancel");
-
-
-
-
-
-
-
-                    //var alert = await DisplayAlert("Login error", "Forgot password?", "Yes", "Cancel");
-                    //if (alert)
-                    //{
-                    //    await Navigation.PushAsync(new ResetPasswordPage());
-                    //}
-                }
-                catch (SQLiteException)
-                {
-                    Application.Current.MainPage.DisplayAlert("Alert", "You have not registered yet", "Register", "Cancel");
-
-
-
-
-
-
-
-                    //var alert1 = await DisplayAlert("Alert", "You have not registered yet", "Register", "Cancel");
-                    //if (alert1)
-                    //{
-                    //    await Navigation.PushAsync(new RegistrationPage(EntryEmail.Text));
-                    //}
+                    await Application.Current.MainPage.Navigation.PushAsync(new RegistrationPage());
                 }
 
 
 
 
             }
+            catch (EmailTruePasswordFalseException)
+            {
+                var alert = await Application.Current.MainPage.DisplayAlert("Login error", "Forgot password?", "Reset", "Cancel");
+
+                if (alert)
+                {
+                   await Application.Current.MainPage.Navigation.PushAsync(new ResetPasswordPage());
+                }
+            }
+
         }
     }
 }
