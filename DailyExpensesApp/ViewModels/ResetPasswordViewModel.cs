@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
+using Plugin.Messaging;
 
 namespace DailyExpensesApp.ViewModels
 {
@@ -65,7 +66,7 @@ namespace DailyExpensesApp.ViewModels
             UpdatePasswordCommand = new Command(UpdatePassword);
         }
 
-        public void UpdatePassword()
+        public async void UpdatePassword()
         {
             Validations validations = new Validations();
 
@@ -94,7 +95,7 @@ namespace DailyExpensesApp.ViewModels
 
                     using (SQLiteConnection connection = new SQLiteConnection(App.filepath1))
                     {
-                         PopupNavigation.Instance.PushAsync(new PopupView());
+                        await PopupNavigation.Instance.PushAsync(new PopupView());
                         var userx = connection.Table<Users>();
 
                         var user2 = userx.Where(x => x.Email == _email)
@@ -103,7 +104,7 @@ namespace DailyExpensesApp.ViewModels
 
                         if (_newPassword != user2.Password)
                         {
-                            if (user2.Email!=null)
+                            if (user2.Email== _email)
                             {
                                 if (_newPassword == NewConfirmPassword)
                                 {
@@ -111,21 +112,24 @@ namespace DailyExpensesApp.ViewModels
                                         validations.ValidatePassword(_newConfirmPassword))
                                     {
 
-                                        user2.Email = _email;
-                                        user2.Password = _newPassword;
-                                        connection.Update(user2);
-                                         PopupNavigation.Instance.PopAsync();
-                                        
-                                        var updated =  Application.Current.MainPage.DisplayAlert("Success", "Password successfully updated. Return to login?", "ok", "cancel");
+                                                user2.Email = _email;
+                                            user2.Password = _newPassword;
+                                            connection.Update(user2);
+                                            await PopupNavigation.Instance.PopAsync();
 
-                                        if (updated!=null)
-                                         {
-                                             Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
-                                         }
+                                            var updated =await Application.Current.MainPage.DisplayAlert("Success", "Password successfully updated. Return to login?", "ok", "cancel");
+
+                                            if (updated)
+                                            {
+                                                await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                                            }
+                                 
+
+                                        
                                     }
                                     else
                                     {
-                                        PopupNavigation.Instance.PopAsync();
+                                        await PopupNavigation.Instance.PopAsync();
                                         LabelMessage = "Password fields are not in the correct format";
                                        
                                       
@@ -134,7 +138,7 @@ namespace DailyExpensesApp.ViewModels
                                 }
                                 else
                                 {
-                                   PopupNavigation.Instance.PopAsync();
+                                    await PopupNavigation.Instance.PopAsync();
                                     LabelMessage = "Password doesnt match";
                                   
                                  
@@ -146,16 +150,16 @@ namespace DailyExpensesApp.ViewModels
 
                             else
                             {
-                               PopupNavigation.Instance.PopAsync();
+                                await PopupNavigation.Instance.PopAsync();
                                LabelMessage = "";
-                                Application.Current.MainPage.DisplayAlert("Alert", "User not available", "OK");
+                                await Application.Current.MainPage.DisplayAlert("Alert", "User not available", "OK");
                             }
                         }
                         else
                         {
-                             PopupNavigation.Instance.PopAsync();
+                            await PopupNavigation.Instance.PopAsync();
                              LabelMessage = "";
-                            Application.Current.MainPage.DisplayAlert("Alert", "You've entered the previous password", "OK");
+                            await Application.Current.MainPage.DisplayAlert("Alert", "You've entered the previous password", "OK");
                         }
 
 
@@ -163,13 +167,29 @@ namespace DailyExpensesApp.ViewModels
 
 
                 }
-                catch (Exception)
+                catch (NullReferenceException)
                 {
-                    PopupNavigation.Instance.PopAsync();
+                    await PopupNavigation.Instance.PopAsync();
+                    await Application.Current.MainPage.DisplayAlert("Update error", "User not available", "Ok");
+
+                   
+                }
+                catch (SQLiteException)
+                {
+                    var alert = await Application.Current.MainPage.DisplayAlert("Login error", "You have not registered yet", "Register", "Cancel");
+
+                    if (alert)
+                    {
+                        await Application.Current.MainPage.Navigation.PushAsync(new RegistrationPage());
+                    }
+                }
+                catch (Exception excion)
+                {
+                    await PopupNavigation.Instance.PopAsync();
                   
                     Email = null;
                     LabelMessage = "";
-                    Application.Current.MainPage.DisplayAlert("Alert", "User not available", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Alert", excion.ToString(), "OK");
                 }
 
 

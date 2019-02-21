@@ -1,5 +1,7 @@
 DailyExpensesApp
 FormsViewGroup
+Plugin.Messaging.Abstractions
+Plugin.Messaging
 Rg.Plugins.Popup
 Rg.Plugins.Popup.Droid
 SQLite-net

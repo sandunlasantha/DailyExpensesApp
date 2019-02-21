@@ -109,6 +109,8 @@ class MonoPackageManager_Resources {
 		"DailyExpensesApp.Android.dll",
 		"DailyExpensesApp.dll",
 		"FormsViewGroup.dll",
+		"Plugin.Messaging.Abstractions.dll",
+		"Plugin.Messaging.dll",
 		"Rg.Plugins.Popup.dll",
 		"Rg.Plugins.Popup.Droid.dll",
 		"SQLite-net.dll",

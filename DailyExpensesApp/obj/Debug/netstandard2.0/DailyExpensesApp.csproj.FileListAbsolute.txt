@@ -10,7 +10,7 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\DailyExpensesApp.csproj.CoreCompileInputs.cache
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\DailyExpensesApp.AssemblyInfoInputs.cache
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\DailyExpensesApp.AssemblyInfo.cs
-C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\DailyExpensesApp.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\DailyExpensesApp.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\XamlC.stamp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp\obj\Debug\netstandard2.0\DailyExpensesApp.csprojAssemblyReference.cache

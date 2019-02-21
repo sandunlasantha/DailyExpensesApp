@@ -64,3 +64,6 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\obj\iPhoneSimulator\Debug\DailyExpensesApp.iOS.csproj.CopyComplete
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\obj\iPhoneSimulator\Debug\DailyExpensesApp.iOS.exe
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\obj\iPhoneSimulator\Debug\DailyExpensesApp.iOS.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.Abstractions.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.Abstractions.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.dll

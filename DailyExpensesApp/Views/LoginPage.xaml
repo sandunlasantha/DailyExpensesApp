@@ -54,7 +54,7 @@
 
 
         <Button Grid.Row="7" Text="Login" WidthRequest="380" CornerRadius="30" BackgroundColor="#D6325C" TextColor="White" Command="{Binding LoginCommand}"/>
-        <Button Grid.Row="8" Text="Sign up" BackgroundColor="Transparent" TextColor="White"  Command="SignupCommand"/>
+        <Button Grid.Row="8" Text="Sign up" BackgroundColor="Transparent" TextColor="White"  Command="{Binding SignupCommand}"/>
         <Button Grid.Row="9" Text="Forgot password?" TextColor="#D6325C" BackgroundColor="Transparent" Clicked="ForgotButton_OnClicked" Command="ForgotPasswordCommand"/>
     </Grid>
 </ContentPage>

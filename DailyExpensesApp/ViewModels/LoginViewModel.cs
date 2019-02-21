@@ -33,11 +33,17 @@ namespace DailyExpensesApp.ViewModels
         public String Password { get { return _password; } set { _password = value;} }
         public string LabelMessage { get {  return _labelMessage;} set { _labelMessage = value; OnPropertyChanged(); } }
         public ICommand LoginCommand { get; set; }
-       
+        public ICommand SignupCommand { get; set; }
 
         public LoginViewModel()
         {
             LoginCommand = new Command(Login);
+            SignupCommand = new Command(SignUp);
+        }
+
+        private void SignUp()
+        {
+            Application.Current.MainPage.Navigation.PushAsync(new RegistrationPage());
         }
 
         private async void  Login()
@@ -64,10 +70,9 @@ namespace DailyExpensesApp.ViewModels
 
                     var user = connection.Table<Users>();
                     var user1 = user.Where(x => x.Email == _email && x.Password == _password).FirstOrDefault();
-                    var user2 = user.Where(x => x.Email == _email)
-                        .FirstOrDefault();
+                    var user2 = user.Where(x => x.Email == _email).FirstOrDefault();
 
-                    if (user2!=null)
+                    if (user2.Email==_email && user2.Password != _password)
                     {
 
                         throw new EmailTruePasswordFalseException();
@@ -127,6 +132,16 @@ namespace DailyExpensesApp.ViewModels
                    await Application.Current.MainPage.Navigation.PushAsync(new ResetPasswordPage());
                 }
             }
+            catch (SQLiteException)
+            {
+                var alert = await Application.Current.MainPage.DisplayAlert("Login error", "You have not registered yet", "Register", "Cancel");
+
+                if (alert)
+                {
+                    await Application.Current.MainPage.Navigation.PushAsync(new RegistrationPage());
+                }
+            }
+
 
         }
     }

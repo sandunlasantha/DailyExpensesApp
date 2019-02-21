@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Input;
 using DailyExpensesApp.Models;
+using DailyExpensesApp.Views;
 using Xamarin.Forms;
 
 namespace DailyExpensesApp.ViewModels
@@ -91,7 +92,11 @@ namespace DailyExpensesApp.ViewModels
                     await PopupNavigation.Instance.PopAsync();
 
 
-                    await Application.Current.MainPage.DisplayAlert("Alert", "Registration successfull", "OK");
+                    var alert = await Application.Current.MainPage.DisplayAlert("Success", "Registration successfull", "Go to login?","Cancel");
+                    if (alert)
+                    {
+                        await Application.Current.MainPage.Navigation.PushAsync(new LoginPage(_email,_password));
+                    }
                     LabelTextMessage = "";
                     _password = null;
                     _email = null;
@@ -141,6 +146,12 @@ namespace DailyExpensesApp.ViewModels
                 //  await DisplayAlert("Registration error", "Username is already taken", "OK");
                 //  EntryEmail.Text = "";
                 await Application.Current.MainPage.DisplayAlert("Alert", "Username is already taken", "OK");
+            }
+            catch (Exception ex)
+            {
+                //  await DisplayAlert("Registration error", "Username is already taken", "OK");
+                //  EntryEmail.Text = "";
+                await Application.Current.MainPage.DisplayAlert("Alert", ex.ToString(), "OK");
             }
         }
     }

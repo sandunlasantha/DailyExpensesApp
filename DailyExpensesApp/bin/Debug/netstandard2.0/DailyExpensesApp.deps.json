@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "0b2e8556e833f84faedf4d1a11fbf22bda5d8d46"
+    "signature": "e6954fea13c9575459e8dc7c2dc6fb3651487fb0"
   },
   "compilationOptions": {},
   "targets": {
@@ -11,6 +11,7 @@
         "dependencies": {
           "NETStandard.Library": "2.0.3",
           "Rg.Plugins.Popup": "1.1.5.188",
+          "Xam.Plugins.Messaging": "5.2.0",
           "Xamarin.Forms": "3.4.0.1008975",
           "sqlite-net-pcl": "1.6.258-beta"
         },
@@ -71,6 +72,21 @@
           "lib/netstandard1.1/SQLitePCLRaw.core.dll": {
             "assemblyVersion": "1.1.13.388",
             "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Xam.Plugins.Messaging/5.2.0": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Messaging.Abstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "5.2.0.16"
+          },
+          "lib/netstandard1.0/Plugin.Messaging.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "5.2.0.16"
           }
         }
       },
@@ -139,6 +155,13 @@
       "sha512": "sha512-UcP955bF6FtgzSu6S9jcC4FUzOqn5/E6dxby5CzzSxLYZHvGfDntfUzgwm/HD3nJgSpCi9VDNwU7TWVPICJdiQ==",
       "path": "sqlitepclraw.core/1.1.13",
       "hashPath": "sqlitepclraw.core.1.1.13.nupkg.sha512"
+    },
+    "Xam.Plugins.Messaging/5.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-usjiQldDRyK28EVW7DJ8gfzuRBFgIJZbWvQMn6H1oGsBU28Et7WirLQLGt4U7H6DyXSCyfLIqZgRlgXbhp5fLg==",
+      "path": "xam.plugins.messaging/5.2.0",
+      "hashPath": "xam.plugins.messaging.5.2.0.nupkg.sha512"
     },
     "Xamarin.Forms/3.4.0.1008975": {
       "type": "package",
