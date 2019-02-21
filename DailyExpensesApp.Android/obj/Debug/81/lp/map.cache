@@ -1,5 +1,8 @@
 DailyExpensesApp
 FormsViewGroup
+Plugin.Fingerprint.Abstractions
+Plugin.Fingerprint.Android.Samsung
+Plugin.Fingerprint
 Plugin.Messaging.Abstractions
 Plugin.Messaging
 Rg.Plugins.Popup

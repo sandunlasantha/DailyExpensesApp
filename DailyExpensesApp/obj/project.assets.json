@@ -26,6 +26,20 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Plugin.Fingerprint/1.4.9": {
+        "type": "package",
+        "dependencies": {
+          "NETStandard.Library": "1.6.0"
+        },
+        "compile": {
+          "lib/netstandard1.0/Plugin.Fingerprint.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Fingerprint.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard1.0/Plugin.Fingerprint.Abstractions.dll": {},
+          "lib/netstandard1.0/Plugin.Fingerprint.dll": {}
+        }
+      },
       "Rg.Plugins.Popup/1.1.5.188": {
         "type": "package",
         "dependencies": {
@@ -254,6 +268,65 @@
         "lib/netstandard1.0/_._",
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "Plugin.Fingerprint/1.4.9": {
+      "sha512": "AffL3rjCph3gNJPA33BusYKemYCunE1N6wt8n0+yxSCALgrj7sY+/9oZgAMwm6hK94280gdHkAJrSd8SEcbM6g==",
+      "type": "package",
+      "path": "plugin.fingerprint/1.4.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/MonoAndroid/Plugin.Fingerprint.Abstractions.dll",
+        "lib/MonoAndroid/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/MonoAndroid/Plugin.Fingerprint.Android.Samsung.dll",
+        "lib/MonoAndroid/Plugin.Fingerprint.Android.Samsung.pdb",
+        "lib/MonoAndroid/Plugin.Fingerprint.dll",
+        "lib/MonoAndroid/Plugin.Fingerprint.pdb",
+        "lib/UAP10/Plugin.Fingerprint.Abstractions.dll",
+        "lib/UAP10/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/UAP10/Plugin.Fingerprint.dll",
+        "lib/UAP10/Plugin.Fingerprint.pdb",
+        "lib/UAP10/Plugin.Fingerprint.pri",
+        "lib/UAP10/Plugin.Fingerprint/Properties/Plugin.Fingerprint.UWP.rd.xml",
+        "lib/Xamarin.Mac20/Plugin.Fingerprint.Abstractions.dll",
+        "lib/Xamarin.Mac20/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/Xamarin.Mac20/Plugin.Fingerprint.dll",
+        "lib/Xamarin.iOS10/Plugin.Fingerprint.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/Xamarin.iOS10/Plugin.Fingerprint.dll",
+        "lib/net45/Plugin.Fingerprint.Abstractions.dll",
+        "lib/net45/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/net45/Plugin.Fingerprint.dll",
+        "lib/net45/Plugin.Fingerprint.pdb",
+        "lib/netcore45/Plugin.Fingerprint.Abstractions.dll",
+        "lib/netcore45/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/netcore45/Plugin.Fingerprint.dll",
+        "lib/netcore45/Plugin.Fingerprint.pdb",
+        "lib/netstandard1.0/Plugin.Fingerprint.Abstractions.dll",
+        "lib/netstandard1.0/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/netstandard1.0/Plugin.Fingerprint.XML",
+        "lib/netstandard1.0/Plugin.Fingerprint.dll",
+        "lib/netstandard1.0/Plugin.Fingerprint.pdb",
+        "lib/portable-net45+win8+wpa81+wp8/Plugin.Fingerprint.Abstractions.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/portable-net45+win8+wpa81+wp8/Plugin.Fingerprint.XML",
+        "lib/portable-net45+win8+wpa81+wp8/Plugin.Fingerprint.dll",
+        "lib/portable-net45+win8+wpa81+wp8/Plugin.Fingerprint.pdb",
+        "lib/win81/Plugin.Fingerprint.Abstractions.dll",
+        "lib/win81/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/win81/Plugin.Fingerprint.dll",
+        "lib/win81/Plugin.Fingerprint.pdb",
+        "lib/wp8/Plugin.Fingerprint.Abstractions.dll",
+        "lib/wp8/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/wp8/Plugin.Fingerprint.dll",
+        "lib/wp8/Plugin.Fingerprint.pdb",
+        "lib/wpa81/Plugin.Fingerprint.Abstractions.dll",
+        "lib/wpa81/Plugin.Fingerprint.Abstractions.pdb",
+        "lib/wpa81/Plugin.Fingerprint.dll",
+        "lib/wpa81/Plugin.Fingerprint.pdb",
+        "plugin.fingerprint.1.4.9.nupkg.sha512",
+        "plugin.fingerprint.nuspec"
       ]
     },
     "Rg.Plugins.Popup/1.1.5.188": {
@@ -567,6 +640,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "NETStandard.Library >= 2.0.3",
+      "Plugin.Fingerprint >= 1.4.9",
       "Rg.Plugins.Popup >= 1.1.5.188",
       "Xam.Plugins.Messaging >= 5.2.0",
       "Xamarin.Forms >= 3.4.0.1008975",
@@ -619,6 +693,10 @@
             "target": "Package",
             "version": "[2.0.3, )",
             "autoReferenced": true
+          },
+          "Plugin.Fingerprint": {
+            "target": "Package",
+            "version": "[1.4.9, )"
           },
           "Rg.Plugins.Popup": {
             "target": "Package",

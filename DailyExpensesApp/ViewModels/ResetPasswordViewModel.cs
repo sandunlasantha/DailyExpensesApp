@@ -10,6 +10,7 @@ using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Plugin.Messaging;
+using Plugin.Fingerprint;
 
 namespace DailyExpensesApp.ViewModels
 {
@@ -111,29 +112,31 @@ namespace DailyExpensesApp.ViewModels
                                     if (validations.ValidatePassword(_newPassword) == true &&
                                         validations.ValidatePassword(_newConfirmPassword))
                                     {
-
-                                                user2.Email = _email;
+                                        
+                                            user2.Email = _email;
                                             user2.Password = _newPassword;
                                             connection.Update(user2);
                                             await PopupNavigation.Instance.PopAsync();
 
-                                            var updated =await Application.Current.MainPage.DisplayAlert("Success", "Password successfully updated. Return to login?", "ok", "cancel");
+                                            var updated = await Application.Current.MainPage.DisplayAlert("Success", "Password successfully updated. Return to login?", "ok", "cancel");
 
                                             if (updated)
                                             {
-                                                await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+                                                await Application.Current.MainPage.Navigation.PushAsync(new LoginPage(_email,_newPassword));
                                             }
+                              
+                                       
+
+                                     
                                  
 
                                         
                                     }
                                     else
                                     {
-                                        await PopupNavigation.Instance.PopAsync();
+                                       await PopupNavigation.Instance.PopAsync();
                                         LabelMessage = "Password fields are not in the correct format";
-                                       
-                                      
-                                    }
+                                     }
 
                                 }
                                 else
@@ -157,7 +160,7 @@ namespace DailyExpensesApp.ViewModels
                         }
                         else
                         {
-                            await PopupNavigation.Instance.PopAsync();
+                           await PopupNavigation.Instance.PopAsync();
                              LabelMessage = "";
                             await Application.Current.MainPage.DisplayAlert("Alert", "You've entered the previous password", "OK");
                         }
@@ -185,7 +188,7 @@ namespace DailyExpensesApp.ViewModels
                 }
                 catch (Exception excion)
                 {
-                    await PopupNavigation.Instance.PopAsync();
+                   await PopupNavigation.Instance.PopAsync();
                   
                     Email = null;
                     LabelMessage = "";

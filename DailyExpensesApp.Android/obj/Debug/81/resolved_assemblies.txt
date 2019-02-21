@@ -4,6 +4,9 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Java.Interop.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Mono.Android.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\mscorlib.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Plugin.Fingerprint.Abstractions.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Plugin.Fingerprint.Android.Samsung.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Plugin.Fingerprint.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Plugin.Messaging.Abstractions.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Plugin.Messaging.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\Rg.Plugins.Popup.dll
@@ -53,9 +56,9 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.ServiceModel.Internals.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Web.Services.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Runtime.dll
-C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Collections.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Threading.Tasks.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Diagnostics.Debug.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Collections.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Reflection.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Threading.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.Android\obj\Debug\81\android\assets\System.Runtime.Extensions.dll

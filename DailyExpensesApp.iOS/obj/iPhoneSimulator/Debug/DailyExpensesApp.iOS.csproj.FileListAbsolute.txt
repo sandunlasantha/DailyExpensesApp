@@ -1,5 +1,8 @@
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\DailyExpensesApp.iOS.exe
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\DailyExpensesApp.iOS.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Fingerprint.Abstractions.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Fingerprint.Abstractions.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Fingerprint.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.IOS.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.IOS.pdb
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Rg.Plugins.Popup.dll
@@ -9,6 +12,9 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.batteries_v2.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.core.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\SQLitePCLRaw.provider.sqlite3.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.Abstractions.dll
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.Abstractions.pdb
+C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.dll
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Core.pdb
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Xamarin.Forms.Platform.dll
@@ -64,6 +70,3 @@ C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesAp
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\obj\iPhoneSimulator\Debug\DailyExpensesApp.iOS.csproj.CopyComplete
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\obj\iPhoneSimulator\Debug\DailyExpensesApp.iOS.exe
 C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\obj\iPhoneSimulator\Debug\DailyExpensesApp.iOS.pdb
-C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.Abstractions.dll
-C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.Abstractions.pdb
-C:\Users\sandun.l\source\repos\DailyExpensesApp\DailyExpensesApp\DailyExpensesApp.iOS\bin\iPhoneSimulator\Debug\Plugin.Messaging.dll

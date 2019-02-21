@@ -46,6 +46,7 @@ namespace DailyExpensesApp.ViewModels
         {
             try
             {
+                await PopupNavigation.Instance.PushAsync(new PopupView());
                 if (_password == null || _confirmPassword == null || _email == null ||
                     _name == null)
                 {
@@ -80,7 +81,7 @@ namespace DailyExpensesApp.ViewModels
 
                 using (SQLiteConnection connection = new SQLiteConnection(App.filepath1))
                 {
-                    await PopupNavigation.Instance.PushAsync(new PopupView());
+                  
 
                     connection.CreateTable<Users>();
 
@@ -112,46 +113,50 @@ namespace DailyExpensesApp.ViewModels
             }
             catch (EmailNullPasswordNullException)
             {
-                // LabelInformation.IsVisible = true;
+                await PopupNavigation.Instance.PopAsync();
+              
                 LabelTextMessage = "Missing fields";
-               // Application.Current.MainPage.DisplayAlert("Alert", "Missing fields", "OK");
+               
+            
             }
 
             catch (InvalidEmailException)
             {
-                // LabelInformation.IsVisible = true;
-              //  Application.Current.MainPage.DisplayAlert("Alert", "Email is not in the correct format", "OK");
+                await PopupNavigation.Instance.PopAsync();
+           
                 LabelTextMessage = "Email is not in the correct format";
-                //EntryEmail.Text = "";
+              
+              
             }
 
             catch (InvalidPasswordException)
             {
-                // LabelInformation.IsVisible = true;
-              //  Application.Current.MainPage.DisplayAlert("Alert", "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters", "OK");
+                await PopupNavigation.Instance.PopAsync();
+              
                 LabelTextMessage = "Password should contain both uppercase,lowercase characters,at least one number and more than 6 characters";
+               
             }
 
             catch (PasswordNotMatchException)
             {
-               // Application.Current.MainPage.DisplayAlert("Alert", "Password doesn't match", "OK");
-                // await DisplayAlert("Alert", "Password doesn't match", "OK");
-                //  LabelInformation.IsVisible = true;
+                await PopupNavigation.Instance.PopAsync();
+                
                 LabelTextMessage = "Password doesn't match";
-                //  EntryPassword.Text = "";
-                //  EntryConfirmPassword.Text = "";
+             
             }
             catch (SQLiteException)
             {
-                //  await DisplayAlert("Registration error", "Username is already taken", "OK");
-                //  EntryEmail.Text = "";
+                await PopupNavigation.Instance.PopAsync();
+               
                 await Application.Current.MainPage.DisplayAlert("Alert", "Username is already taken", "OK");
+               
             }
             catch (Exception ex)
             {
-                //  await DisplayAlert("Registration error", "Username is already taken", "OK");
-                //  EntryEmail.Text = "";
+                await PopupNavigation.Instance.PopAsync();
+              
                 await Application.Current.MainPage.DisplayAlert("Alert", ex.ToString(), "OK");
+              
             }
         }
     }
